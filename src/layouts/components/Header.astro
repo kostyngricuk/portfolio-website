@@ -1,6 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { MoonIcon, SunIcon, GitHubIcon, GitHubWhiteIcon } from '@src/assets/icons';
+import { MoonIcon, SunIcon, GitHubIcon, TelegramIcon, LinkedInIcon } from '@src/assets/icons';
 import { getPath } from '@src/utils';
 
 
@@ -29,14 +29,17 @@ const menu = [
 					Kanstantsin Hrytsuk
 				</a>
 			</h2>
-			<div class='flex'>
-				<a class='p-3 dark:hidden' href='https://github.com/kostyngricuk' target='_blank'>
-          <GitHubIcon width={30} height={30} />
+			<div class='flex items-center gap-3 py-3'>
+        <a class='text-black dark:text-white' href='https://www.linkedin.com/in/kanstantsin-hrytsuk/' target='_blank'>
+          <LinkedInIcon width={20} height={20} />
         </a>
-				<a class='p-3 hidden dark:block' href='https://github.com/kostyngricuk' target='_blank'>
-          <GitHubWhiteIcon width={30} height={30} />
+        <a class='text-black dark:text-white' href='https://t.me/kanstantsinhrytsuk' target='_blank'>
+          <TelegramIcon width={24} height={24} />
         </a>
-				<button class='p-3' id='themeToggle' aria-label='Theme mode'>
+				<a class='text-black dark:text-white' href='https://github.com/kostyngricuk' target='_blank'>
+          <GitHubIcon width={22} height={22} />
+        </a>
+				<button id='themeToggle' aria-label='Theme mode'>
 					<SunIcon class="dark:hidden" />
           <MoonIcon class="hidden dark:block" />
 				</button>
@@ -52,7 +55,7 @@ const menu = [
         {
           menu.map((item) => (
             <div class='px-2.5 text-sm'>
-              <HeaderLink class="py-3 flex items-center" href={item.link}>
+              <HeaderLink class="py-3 flex items-center" href={getPath(item.link)}>
                 {item.label}
               </HeaderLink>
             </div>

@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import FormattedDate from '../components/FormattedDate.astro';
 import TableOfContent from '../components/widgets/TableOfContent.astro';
-import { slugify } from '../utils';
+import { slugify, getPath } from '../utils';
 import { render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -42,7 +42,7 @@ const { Content, headings } = await render(post);
                           text-sm text-zinc-700 dark:text-zinc-300 no-underline px-2 py-0.5
                           transition-all duration-700
                         hover:border-zinc-700 dark:hover:border-zinc-300'
-                        href={`/tags/${slugify(tag)}`}>
+                        href={getPath(`/tags/${slugify(tag)}`)}>
                         {tag}
                       </a>
                     ))

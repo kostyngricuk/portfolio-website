@@ -1,5 +1,5 @@
 ---
-import { slugify } from '../utils';
+import { slugify, getPath } from '../utils';
 import FormattedDate from './FormattedDate.astro';
 import type { CollectionEntry } from 'astro:content';
 
@@ -11,7 +11,7 @@ const { post }: Record<string, any> | { post: BlogPost } = Astro.props
     <FormattedDate date={post.data.pubDate} />
   </div>
   <h3 class='font-medium grow'>
-    <a href={`/${post.id}/`}>
+    <a href={getPath(`/${post.id}/`)}>
       {post.data.title}
     </a>
   </h3>
@@ -23,7 +23,7 @@ const { post }: Record<string, any> | { post: BlogPost } = Astro.props
           text-sm text-zinc-700 dark:text-zinc-300 no-underline px-2 py-0.5
           transition-all duration-700
           hover:border-zinc-700 dark:hover:border-zinc-300'
-          href={`/tags/${slugify(tag)}`}>
+          href={getPath(`/tags/${slugify(tag)}`)}>
           {tag}
         </a>
       ))

@@ -5,12 +5,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import Ava from '@src/assets/images/ava.jpg';
-import Button from '../components/ui/Button.astro'
 import Prose from '../components/Prose.astro';
 import { projects } from './projects/projects';
 import ProjectList from '../components/ProjectList.astro'
 import PostItem from '../components/PostItem.astro';
 import { getPath } from '../utils';
+import TechList from '@src/components/TechList';
 
 type BlogPost = CollectionEntry<'blog'>;
 
@@ -25,20 +25,14 @@ const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b
         <h1 class="text-4xl font-bold mb-4">Hi There 👋! </h1>
         <Prose>
           <div class="text-lg">
-            <p>I am an experienced frontend developer with deep knowledge in development of the <strong>mobile apps</strong>, <strong>websites</strong> and <strong>web platforms</strong>. Follow best practices and use modern technologies. <br />I use AI to optimize routine processes, enhance development speed, and integrate smart features into client‑focused projects.</p>  
-          </div>
-          <div>
-            <h4>Technologies:</h4>
             <p>
-              PHP, JavaScript, TypeScript, React, ReactNative
+              I am an experienced frontend developer with deep knowledge in development of the <strong>mobile apps</strong>, <strong>websites</strong> and <strong>web platforms</strong>. Follow best practices and use modern technologies.
             </p>
             <p>
-              Next.js, Astro, Expo, Laravel
-            </p>
-            <p>
-              Shopify, Wordpress, 1C-Bitrix
+              I use AI to optimize routine processes, enhance development speed, and integrate smart features into client‑focused projects.
             </p>
           </div>
+          <TechList />
         </Prose>
       </div>
       <Image src={Ava} alt="Kanstantsin Hrytsuk" width={300} loading="eager" class="rounded-3xl rotate-3 mx-4 md:mx-0"/>

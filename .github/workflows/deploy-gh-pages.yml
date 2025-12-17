@@ -66,6 +66,7 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
         env:
           SITE: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
           PUBLIC_GTAG_MEASUREMENT_ID: ${{ vars.PUBLIC_GTAG_MEASUREMENT_ID }}
 
       - name: Upload artifact
